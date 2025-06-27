@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url('images/background\ 2.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+}
+
+header {
+  background: rgba(120, 192, 230, 0.608);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+  margin-right: 20px;
+}
+
+.slogan h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.slogan p {
+  margin: 5px 0 0;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+}
+
+.form-section {
+  background: rgb(120, 192, 230, 0.608);
+  padding: 30px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form label {
+  margin: 10px 0 5px;
+}
+
+form input,
+form button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+form input[type=\"file\"] {
+  background: #fff;
+  color: #000;
+}
+
+button {
+  margin-top: 20px;
+  background: #28a745;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #218838;
+}
+
+footer {
+  background: rgba(120, 192, 230, 0.608);
+  padding: 20px;
+  text-align: center;
+}

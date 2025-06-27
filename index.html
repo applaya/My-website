@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gauteng Learners Varsity Application</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    function validateForm(event) {
+      const form = document.forms["applicationForm"];
+      const fullname = form["fullname"].value.trim();
+      const idNumber = form["id_number"].value.trim();
+      const email = form["email"].value.trim();
+      const phone = form["phone"].value.trim();
+      const school = form["school"].value.trim();
+      const files = form["documents"].files;
+
+      if (!fullname || !idNumber || !email || !phone || !school) {
+        alert("Please fill in all required fields.");
+        event.preventDefault();
+        return false;
+      }
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        event.preventDefault();
+        return false;
+      }
+
+      if (files.length === 0) {
+        alert("Please upload the required documents.");
+        event.preventDefault();
+        return false;
+      }
+
+      event.preventDefault();
+      document.querySelector('.form-section').innerHTML = `
+        <h2>Thank you! Your application has been submitted successfully.</h2>
+        <p>Do you want to save your profile to track your applications?</p>
+        <a href="login.html"><button class="track-btn">Yes, Take Me to Login</button></a>
+      `;
+
+      return false;
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="logo-section">
+      <img src="images/applaya.png" alt="Organization Logo" class="logo" />
+      <div class="slogan">
+        <h1>Unlock Your Future</h1>
+        <p>Helping Grade 11 & 12 Learners to Apply for Varsity with Confidence.</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <form name="applicationForm" action="http://localhost:5000/apply" method="POST" enctype="multipart/form-data">
+
+        <h2>University Application Form</h2>
+
+        <label for="fullname">Full Name & Surname:</label>
+        <input type="text" id="fullname" name="fullname" required />
+
+        <label for="id_number">ID Number:</label>
+        <input type="text" id="id_number" name="id_number" required />
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required />
+
+        <label for="school">Current School:</label>
+        <input type="text" id="school" name="school" required />
+
+        <label for="Grade">Current Grade:</label>
+        <input type="number" id="Grade" name="Grade" required />
+
+        <label for="school">Qualifications of Intrest:</label>
+        <input type="text" id="school" name="school" required />
+
+        <label for="school">Institutions of Intrest:</label>
+        <input type="text" id="school" name="school" required />
+
+        <label for="documents">Upload Required Documents (ID, Grade 11/12 Results, etc):</label>
+        <input type="file" id="documents" name="documents" multiple required />
+
+        <button type="submit">Submit Application</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <section class="contact">
+      <h3>Contact Us</h3>
+      <p>Email: applaya.student@gmail.com</p>
+      <p>Phone: +27 66 310 3195</p>
+      <p>Address: Pretoria, Gauteng, South Africa</p>
+    </section>
+  </footer>
+</body>
+</html>
